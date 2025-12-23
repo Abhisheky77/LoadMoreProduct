@@ -26,7 +26,7 @@ function SearchBox({ products, onSearch, onLength }) {
     <div className="flex flex-col sm:flex-row gap-2 w-full sm:flex-1">
       <input
         type="text"
-        placeholder="Search Products By Tags"
+        placeholder="Search Products..."
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
         className="w-full sm:flex-1 h-10 px-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 text-sm sm:text-base"

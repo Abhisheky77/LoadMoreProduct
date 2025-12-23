@@ -16,7 +16,7 @@ function LoadMoreData() {
     async function fetchProducts() {
         try {
             setLoading(true);
-            const response = await fetch(`https://dummyjson.com/products?limit=20&skip=${count == 0 ? 0 : count * 10}`);
+            const response = await fetch(` ${count == 0 ? 0 : count * 20}`);
             console.log(response);
 
             const result = await response.json();
@@ -25,7 +25,7 @@ function LoadMoreData() {
             if (result && result.products && result.products.length) {
                 setProducts((prevData) => {
                     const newProducts = result.products.filter(
-                        (newItem) => !prevData.some(oldItem => oldItem.id === newItem.id)
+                        (newItem) => prevData.every(oldItem => oldItem.id !== newItem.id)
                     );
                     return [...prevData, ...newProducts];
                 });
@@ -37,6 +37,7 @@ function LoadMoreData() {
                     return [...prevData, ...newProducts];
                 });
                 setLoading(false);
+                // setfilterProducts(result.products);
             }
 
         } catch (e) {
@@ -69,7 +70,7 @@ function LoadMoreData() {
     //   
     return (
         <div className=" flex flex-col justify-center items-center mt-10">
-            <div className="bg-white shadow-sm sticky top-0 z-10 p-4">
+            <div className="bg-white shadow-sm sticky top-0 z-10 p-4 rounded-2xl">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col sm:flex-row gap-3">
                         <SearchBox
@@ -86,7 +87,7 @@ function LoadMoreData() {
                 {
                     filterProducts && filterProducts.length ?
                         filterProducts.map((productsItem) =>
-                            <div className=" w-85 max-h-100 flex flex-col items-center rounded-2xl shadow-lg  bg-gradient-to-br from-slate-50 to-gray-100 transition-transform duration-300 hover:scale-105  " key={productsItem.id}>
+                            <div className=" w-85 max-h-100 flex flex-col items-center rounded-2xl shadow-lg  bg-gradient-to-br from-slate-50 to-gray-100   " key={productsItem.id}>
                                 <div className="w-full h-[150px] flex items-center justify-center mt-6 mb-6">
                                     <img className="w-48 h-44 object-contain mt-7 mb-7 " src={productsItem.images[0]} alt={productsItem.title} />
                                 </div>
