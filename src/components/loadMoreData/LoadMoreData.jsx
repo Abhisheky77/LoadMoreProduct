@@ -16,7 +16,7 @@ function LoadMoreData() {
     async function fetchProducts() {
         try {
             setLoading(true);
-            const response = await fetch(` ${count == 0 ? 0 : count * 20}`);
+            const response = await fetch(` https://dummyjson.com/products?limit=10&skip=${count == 0 ? 0 : count * 20}`);
             console.log(response);
 
             const result = await response.json();
