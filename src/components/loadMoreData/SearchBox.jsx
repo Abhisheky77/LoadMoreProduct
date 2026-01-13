@@ -7,6 +7,9 @@ function SearchBox({ products, onSearch, onLength }) {
 
   function searchProduct() {
     const searchProduct = products.filter((items) =>
+      items.title?.toLowerCase().includes(searchText.trim().toLowerCase()) ||
+      items.category?.toLowerCase().includes(searchText.trim().toLowerCase()) ||
+      items.brand?.toLowerCase().includes(searchText.trim().toLowerCase()) ||
       items.tags?.some((tag) => tag.toLowerCase().includes(searchText.toLowerCase()))
     );
     onSearch(searchProduct);
