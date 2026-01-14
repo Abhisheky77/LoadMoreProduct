@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
+import ScrollIndicator from "./Scroll_Indicator";
+import { FunctionSquare } from "lucide-react";
 
 
 function SearchBox({ products, onSearch, onLength }) {
   const [searchText, setSearchText] = useState("");
+ 
 
   function searchProduct() {
     const searchProduct = products.filter((items) =>
@@ -25,6 +28,7 @@ function SearchBox({ products, onSearch, onLength }) {
     window.location.reload();
   }
 
+  
   return (
     <div className="flex flex-col sm:flex-row gap-2 w-full sm:flex-1">
       <input
@@ -47,7 +51,10 @@ function SearchBox({ products, onSearch, onLength }) {
         >
           Refresh
         </button>
+        
       </div>
+      
+      
     </div>
   );
 }
