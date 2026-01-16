@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Button } from "../ui/button";
-import ScrollIndicator from "./Scroll_Indicator";
-import { FunctionSquare } from "lucide-react";
 
 
 function SearchBox({ products, onSearch, onLength }) {
