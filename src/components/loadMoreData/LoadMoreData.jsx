@@ -21,7 +21,6 @@ function LoadMoreData() {
             console.log(response);
 
             const result = await response.json();
-            console.log("data", result);
 
             if (result && result.products && result.products.length) {
                 setProducts((prevData) => {
