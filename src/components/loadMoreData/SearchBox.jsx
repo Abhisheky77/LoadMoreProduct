@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 
 
-function SearchBox({ products, onSearch, onLength }) {
+function SearchBox({ products, onSearch, onLength  }) {
   const [searchText, setSearchText] = useState("");
  
 
