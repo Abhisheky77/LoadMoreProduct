@@ -4,6 +4,7 @@ import { MdStars } from "react-icons/md";
 import DropDown from "./DropDown";
 import SearchBox from "./SearchBox";
 import ScrollIndicator from "./Scroll_Indicator";
+import ScrollTopBottom from "./ScrollTop&Down";
 
 function LoadMoreData() {
 
@@ -18,11 +19,13 @@ function LoadMoreData() {
         try {
             setLoading(true);
             const response = await fetch(` https://dummyjson.com/products?limit=10&skip=${count == 0 ? 0 : count * 20}`);
-            console.log(response);
+
 
             const result = await response.json();
-
+            console.log(result);
             if (result && result.products && result.products.length) {
+
+
                 setProducts((prevData) => {
                     const newProducts = result.products.filter(
                         (newItem) => prevData.every(oldItem => oldItem.id !== newItem.id)
@@ -71,13 +74,11 @@ function LoadMoreData() {
     function handleScrollPercentage(value) {
         setScrollPercentage(value);
     }
-
     return (
         <div className=" flex flex-col justify-center items-center mt-10">
             <div className=" bg-white  shadow-2xl sticky top-0 z-20 rounded-lg">
                 <div className=" px-5 pb-2 pt-5">
                     <div className="max-w-7xl mx-auto">
-
                         <div className="flex flex-col sm:flex-row gap-3 items-center">
                             <SearchBox
                                 products={products}
@@ -92,15 +93,15 @@ function LoadMoreData() {
                     </div>
                 </div>
                 <ScrollIndicator onScroll={handleScrollPercentage} />
-                 <div className="mt-3 w-full h-[5px] bg-gray-200 rounded-b-3xl overflow-hidden">
-                            <div
-                                className="h-full transition-all duration-200 ease-out"
-                                style={{
-                                    width: `${scrollPercentage}%`,
-                                    background: "linear-gradient(90deg, #38bdf8, #0ea5e9, #2563eb)",
-                                }}
-                            />
-                        </div>
+                <div className="mt-3 w-full h-[5px] bg-gray-200 rounded-b-3xl overflow-hidden">
+                    <div
+                        className="h-full transition-all duration-200 ease-out"
+                        style={{
+                            width: `${scrollPercentage}%`,
+                            background: "linear-gradient(90deg, #38bdf8, #0ea5e9, #2563eb)",
+                        }}
+                    />
+                </div>
             </div>
 
 
@@ -129,16 +130,22 @@ function LoadMoreData() {
                             </div>
                         ) : null
                 }
+                <div className="">
+                    <ScrollTopBottom  onscrollPercentage={scrollPercentage}/>
+                </div>
+            </div>
+            <div className=" flex justify-between items-center">
+                {
+                    searchlength == false && (
+                        <button
+                            onClick={() => setCount(count + 1)}
+                            className=" border w-50 h-10  rounded-lg bg-red-700 hover:bg-red-500 text-white  duration-300 hover:scale-110 mb-5 cursor-pointer"
+                        >Load more products....</button>
+                    )
+                }
+                
 
             </div>
-            {
-                searchlength == false && (
-                    <button
-                        onClick={() => setCount(count + 1)}
-                        className=" border w-50 h-10  rounded-lg bg-red-700 hover:bg-red-500 text-white  duration-300 hover:scale-110 mb-5 cursor-pointer"
-                    >Load more products....</button>
-                )
-            }
         </div>
     )
 }
