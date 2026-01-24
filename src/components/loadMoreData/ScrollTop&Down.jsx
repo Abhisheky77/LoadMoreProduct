@@ -20,11 +20,11 @@ function ScrollTopBottom({ onscrollPercentage }) {
 
     return (
         <div>
-            <FaArrowCircleUp className=" fixed bottom-15 right-5  z-50  rounded-full shadow-lg hover:scale-110  transition " style={{
+            <FaArrowCircleUp className=" fixed bottom-15 right-5  z-50  rounded-full shadow-lg hover:scale-110  transition cursor-pointer text-black" style={{
                 color: `hsl(${200 + onscrollPercentage}, 90%, 50%)`,
             }} size={40} onClick={handleScrollTop} />
 
-            <FaArrowCircleDown className=" fixed bottom-2 right-5 z-50 rounded-full shadow-lg hover:scale-110  transition" style={{
+            <FaArrowCircleDown className=" fixed bottom-2 right-5 z-50 rounded-full shadow-lg hover:scale-110  transition cursor-pointer " style={{
                 color: `hsl(${200 + onscrollPercentage}, 90%, 50%)`,
             }} size={40} onClick={handleScrollBottom} />
             <div ref={BottomRef}></div>
