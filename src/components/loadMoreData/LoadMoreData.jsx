@@ -5,6 +5,7 @@ import DropDown from "./DropDown";
 import SearchBox from "./SearchBox";
 import ScrollIndicator from "./Scroll_Indicator";
 import ScrollTopBottom from "./ScrollTop&Down";
+import {ThreeDots } from "react-loader-spinner";
 
 function LoadMoreData() {
 
@@ -62,16 +63,19 @@ function LoadMoreData() {
         setfilterProducts(data)
     }
     if (loading) {
-        return (
-            <div className="text-red-500 text-3xl  font-semibold flex justify-center items-center h-screen">
-                Loading data! Please wait...
-            </div>
-        );
-    }
+  return (
+    <div className="flex items-center justify-center min-h-[60vh]">
+     <span className="flex items-center gap-3 text-3xl font-bold text-orange-600">
+  Loading
+  <ThreeDots height={32} width={64} color="#ea580c" ariaLabel="loading"/>
+</span>
+    </div> );
+}
 
     function handleScrollPercentage(value) {
         setScrollPercentage(value);
     }
+
     return (
         <div className=" flex flex-col justify-center items-center mt-10">
             <div className=" bg-white  shadow-2xl sticky top-0 z-20 rounded-lg">
