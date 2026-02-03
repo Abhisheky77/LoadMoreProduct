@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Button } from "../ui/button"
 import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 
 function ScrollTopBottom({ onscrollPercentage }) {
