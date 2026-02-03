@@ -10,8 +10,6 @@ import {
 
 function DropDown({ data, Selected }) {
 
-  
-
   function productCategory(val) {
     const CategoryProducts = data.filter((product) =>
       product.category.includes(val)
@@ -19,10 +17,8 @@ function DropDown({ data, Selected }) {
     Selected(CategoryProducts);
   }
 
-  
   return (
 
- 
     <div className="w-full sm:w-auto sm:min-w-[200px] ">
       <Select onValueChange={productCategory}>
         <SelectTrigger className="w-full h-10 px-4 border border-gray-300 rounded-lg text-sm sm:text-base focus:ring-2 focus:ring-blue-400">

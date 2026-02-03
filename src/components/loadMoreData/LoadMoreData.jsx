@@ -19,8 +19,6 @@ function LoadMoreData() {
         try {
             setLoading(true);
             const response = await fetch(` https://dummyjson.com/products?limit=10&skip=${count == 0 ? 0 : count * 20}`);
-
-
             const result = await response.json();
             console.log(result);
             if (result && result.products && result.products.length) {
@@ -104,8 +102,6 @@ function LoadMoreData() {
                 </div>
             </div>
 
-
-
             <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-8">
                 {
                     filterProducts && filterProducts.length ?
@@ -142,9 +138,7 @@ function LoadMoreData() {
                             className=" border w-50 h-10  rounded-lg bg-red-700 hover:bg-red-500 text-white  duration-300 hover:scale-110 mb-5 cursor-pointer"
                         >Load more products....</button>
                     )
-                }
-                
-
+                }       
             </div>
         </div>
     )
