@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 
 function ScrollIndicator({onScroll}){
-
-
     function handleScrollIndicator(){
         const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
 
