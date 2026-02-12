@@ -18,6 +18,8 @@ function LoadMoreData() {
 
 
 
+console.log();
+
 
     async function fetchProducts() {
         try {
