@@ -18,10 +18,6 @@ function LoadMoreData() {
     const [scrollPercentage, setScrollPercentage] = useState(0)
 
 
-
-console.log();
-
-
     async function fetchProducts() {
         try {
             setLoading(true);
