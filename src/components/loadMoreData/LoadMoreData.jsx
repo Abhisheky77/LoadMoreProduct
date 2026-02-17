@@ -16,7 +16,7 @@ function LoadMoreData() {
     const [searchlength, setSearchlength] = useState(false);
     const [filterProducts, setfilterProducts] = useState(products);
     const [scrollPercentage, setScrollPercentage] = useState(0)
-
+console.log(searchlength);
 
     async function fetchProducts() {
         try {
